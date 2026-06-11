@@ -69,11 +69,33 @@
         -->
 </nav>
 <div class="md:hidden">
-<button class="text-[#111318] p-2">
-<span class="material-symbols-outlined">menu</span>
-</button>
+  <button
+    id="mobile-menu-button"
+    class="text-[#111318] p-2"
+    type="button"
+    aria-label="Abrir menú"
+  >
+    <span class="material-symbols-outlined">menu</span>
+  </button>
 </div>
 </div>
+        <nav
+  id="mobile-menu"
+  class="hidden md:hidden border-t border-[#f0f2f4] bg-white px-4 py-4 space-y-3"
+>
+  <a class="block text-[#111318] text-sm font-medium hover:text-primary" href="#fundacion">Fundación</a>
+  <a class="block text-[#111318] text-sm font-medium hover:text-primary" href="#santificacion">Causa de canonización</a>
+  <a class="block text-[#111318] text-sm font-medium hover:text-primary" href="#proyecto">Proyecto Catedral</a>
+  <a class="block text-[#111318] text-sm font-medium hover:text-primary" href="#campanas">Campañas</a>
+  <a
+    class="block text-[#111318] text-sm font-medium hover:text-primary"
+    href="https://www.padrefranciscovaldes.cl/"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Mons. Valdés
+  </a>
+</nav>
 </header>
 <main class="flex flex-col w-full">
 <section class="relative w-full h-[600px] flex items-center justify-center bg-gray-900 overflow-hidden">
@@ -752,3 +774,25 @@ contemporáneos que respetan y enriquecen su identidad.
     </div>
   </div>
 </footer>
+
+             <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    mobileMenu.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+  }
+});
+</script>
+
+</body>
+</html>
